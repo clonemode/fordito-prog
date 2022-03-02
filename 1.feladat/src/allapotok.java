@@ -17,13 +17,14 @@ public class allapotok {
 
     void allapot1()
     {
+        System.out.println("Kezdőállapot");
         if(index == input.length()-1)
             return;
         read();
-        if(input.charAt(index) == ')' || input.charAt(index) == '}')
-        {
-            read();
-        }
+        //if(input.charAt(index) == ')' || input.charAt(index) == '}')
+        //{
+        //    read();
+        //}
         if(isDigit(input.charAt(index))){           //Ha szám
             allapot4();
         }
@@ -82,6 +83,7 @@ public class allapotok {
     }
     void allapot2()
     {
+        System.out.println("Azonosítóban");
         read();
         if(isDigit(input.charAt(index))){           //Ha szám
             allapot2();
@@ -95,11 +97,13 @@ public class allapotok {
     }
     void allapot3()
     {
+        System.out.println("Azonosító vége");
         backup();
         allapot1();
     }
     void allapot4()
     {
+        System.out.println("Számban");
         read();
         if(isDigit(input.charAt(index))){           //Ha szám
             allapot5();
@@ -114,11 +118,13 @@ public class allapotok {
     }
     void allapot5()
     {
+        System.out.println("Szám vége");
         backup();
         allapot1();
     }
     void allapot6()
     {
+        System.out.println("Komm.-ban");
         read();
         if(input.charAt(index) == '}'){
             allapot7();
@@ -132,11 +138,13 @@ public class allapotok {
     }
     void allapot7()
     {
+        System.out.println("Komm. vége");
         allapot1();
     }
 
     void allapot8()
     {
+        System.out.println("'(' talált");
         read();
         if(input.charAt(index) == '*'){
             allapot9();
@@ -151,6 +159,7 @@ public class allapotok {
     }
     void allapot9()
     {
+        System.out.println("(**)-ban");
         read();
         if(input.charAt(index) == '*'){
             allapot10();
@@ -164,6 +173,7 @@ public class allapotok {
     }
     void allapot10()
     {
+        System.out.println("* (**)-ban");
         read();
         if(input.charAt(index) == '*'){
             allapot10();
@@ -180,10 +190,12 @@ public class allapotok {
     }
     void allapot11()
     {
+        System.out.println("(**) komm.vég");
         allapot1();
     }
     void allapot12()
     {
+        System.out.println("':' talált");
         read();
         if(input.charAt(index) == '='){
             allapot13();
@@ -197,10 +209,12 @@ public class allapotok {
     }
     void allapot13()
     {
+        System.out.println(":= token");
         allapot1();
     }
     void allapot14()
     {
+        System.out.println("'<' talált");
         read();
         if(input.charAt(index) == '='){
             allapot15();
@@ -217,14 +231,17 @@ public class allapotok {
     }
     void allapot15()
     {
+        System.out.println("<= token");
         allapot1();
     }
     void allapot16()
     {
+        System.out.println("<> token");
         allapot1();
     }
     void allapot17()
     {
+        System.out.println("'>' talált");
         read();
         if(input.charAt(index) == '='){
             allapot18();
@@ -238,6 +255,7 @@ public class allapotok {
     }
     void allapot18()
     {
+        System.out.println("<= token");
         allapot1();
     }
     void allapot19()
@@ -247,12 +265,12 @@ public class allapotok {
     }
     void allapot20()
     {
+        System.out.println("Továbbfejl.");
         backup();
         allapot1();
     }
     void allapot21()
     {
         System.out.println("Done");
-        allapot1();
     }
 }
